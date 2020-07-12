@@ -147,6 +147,21 @@
     }
   }
 
+  // parial data added
+
+  function partial (fn, arg) {
+    return function () {
+      return fn(arg)
+    }
+  }
+
+  // asserts function on specified variables: 
+
+  Object.keys(obj).forEach(function (key) {
+    copy[key] = deepCopy(obj[key], cache);
+  });
+
+
   // Base data struct for store's module, package with some attribute and method
   var Module = function Module (rawModule, runtime) {
     this.runtime = runtime;
