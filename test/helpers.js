@@ -24,6 +24,20 @@ export function setupPuppeteer () {
       }
     })
   })
+  
+   // function on regard:
+  Module.prototype.update = function update (rawModule) {
+    this._rawModule.namespaced = rawModule.namespaced;
+    if (rawModule.actions) {
+      this._rawModule.actions = rawModule.actions;
+    }
+    if (rawModule.mutations) {
+      this._rawModule.mutations = rawModule.mutations;
+    }
+    if (rawModule.getters) {
+      this._rawModule.getters = rawModule.getters;
+    }
+  };
 
   afterEach(async () => {
     await browser.close()
